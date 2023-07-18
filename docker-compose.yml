@@ -1,0 +1,40 @@
+version: "3.9"
+
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    profiles:
+      - backend
+    ports:
+      - 8000:8000
+    depends_on:
+      - db
+    environment:
+      - POSTGRES_DB=${DB_NAME}
+      - POSTGRES_USER=${DB_USER}
+      - POSTGRES_PASSWORD=${DB_PASS}
+      - SECRET_KEY=${SECRET_KEY}
+      - DBPORT=${DB_PORT}
+      - USE_DOCKER_COMPOSE=True
+    # entrypoint: ['setup.sh']
+
+  db:
+    profiles:
+      - database
+    image: postgres
+    restart: always
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
+    env_file:
+      - .env
+    environment:
+      - POSTGRES_DB=${DB_NAME}
+      - POSTGRES_USER=${DB_USER}
+      - POSTGRES_PASSWORD=${DB_PASS}
+
+volumes:
+  db-data:

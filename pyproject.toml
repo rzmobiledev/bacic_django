@@ -1,0 +1,30 @@
+[tool.poetry]
+name = "django rz"
+version = "0.1.0"
+description = "Django Training"
+authors = ["Safrizal"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+django = "4.2"
+djangorestframework = "^3.14.0"
+whitenoise = "^6.5.0"
+djangorestframework-simplejwt = "^5.2.2"
+drf-spectacular = "^0.26.3"
+psycopg2 = "^2.9.6"
+wheel = "^0.40.0"
+daphne = "^4.0.0"
+
+[tool.poetry.group.test.dependencies]
+pep8 = "^1.7.1"
+flake8 = "^6.0.0"
+
+
+[tool.poetry.group.dev.dependencies]
+python-dotenv = "^1.0.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

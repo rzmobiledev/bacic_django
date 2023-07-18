@@ -1,0 +1,30 @@
+### sending email
+POST http://127.0.0.1:8000/token/
+Content-Type: application/json
+
+{
+    "username": "iva",
+    "password": "maruco"
+}
+
+### create user
+POST http://127.0.0.1:8000/create-user/
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjg5MTcwODA0LCJpYXQiOjE2ODkxNzA1MDQsImp0aSI6IjRlYzc1OGQ2OTU5NjQyZmNhMzZhZjkzYTJkYjRmN2RkIiwidXNlcl9pZCI6Mn0.xBPZ5Ixwm95Zv_u78qSUWMQ0QiM7UBXwkor2uQ5iULI
+
+{
+    "username": "keyra",
+    "email": "keyra@gmail.com",
+    "password": "almira"
+}
+
+
+### create user
+POST http://127.0.0.1:8000/changepass/
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjg5MTI3Mjg2LCJpYXQiOjE2ODkxMjY5ODYsImp0aSI6ImRhOTgwMDgwYTFhYzQ1NDU5ZDdiOGYwMzJiZGUxMjg0IiwidXNlcl9pZCI6Mn0.sIPsYqm9qH-QcIxZ5JhW_RdNFCvxPnUaDTcCdcX-dIo
+
+{
+    "current_password": "maruco",
+    "new_password": "maruco"
+}
