@@ -1,4 +1,4 @@
-FROM python:3.10.5 as base
+FROM python:3.10.5-slim as base
 
 LABEL maintainer="rzmobiledev@gmail.com"
 ENV PYTHONUNBUFFERED 1
@@ -9,7 +9,8 @@ WORKDIR /install
 COPY requirements.txt .
 COPY /scripting /scripting
 
-RUN apt update && pip install --upgrade pip && pip install --prefix="/install" -r requirements.txt && \
+RUN apt update \
+    && pip install --upgrade pip && pip install --prefix="/install" -r requirements.txt && \
     adduser --disabled-password --no-create-home \
     rizal && chmod -R +x /scripting
 
